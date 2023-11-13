@@ -31,7 +31,7 @@ void main(int argc, char *argv[])
 
     //check directory
     if(S_ISDIR(buf.st_mode)){
-        fprintf(stderr, "rm : cannot remove '/%s'/ : Is a directory\n", argv[1]);
+        fprintf(stderr, "rm : cannot remove '%s' : Is a directory\n", argv[1]);
         exit(1);
     }
 
