@@ -1,3 +1,7 @@
+/*
+ * 20183063 이호준
+ * 파일 이름: my_mkdir.c
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
