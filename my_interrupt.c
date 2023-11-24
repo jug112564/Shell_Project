@@ -11,12 +11,15 @@
 void sigint_handler(int signo) {
     printf("\nCaught SIGINT (Ctrl-C)\n");
     // 여기에서 추가적인 동작을 수행할 수 있습니다.
+    exit(0);
 }
 
-// SIGQUIT (Ctrl-Z) 시그널 핸들러
-void sigquit_handler(int signo) {
-    printf("\nCaught SIGQUIT (Ctrl-Z)\n");
+// SIGTSTP (Ctrl-Z) 시그널 핸들러
+void sigtstp_handler(int signo) {
+    printf("\nCaught SIGTSTP (Ctrl-Z)\n");
     // 여기에서 추가적인 동작을 수행할 수 있습니다.
+
+    raise(SIGSTOP);
 }
 
 int main() {
@@ -26,9 +29,9 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    // SIGQUIT 시그널 핸들러 등록
-    if (signal(SIGQUIT, sigquit_handler) == SIG_ERR) {
-        perror("signal(SIGQUIT) error");
+    // SIGTSTP 시그널 핸들러 등록
+    if (signal(SIGTSTP, sigtstp_handler) == SIG_ERR) {
+        perror("signal(SIGTSTP) error");
         exit(EXIT_FAILURE);
     }
 
