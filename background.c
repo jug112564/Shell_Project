@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     } else { // 부모 프로세스
         if (!background) {
-            // 부모 프로세스는 자식 프로세스의 종료를 기다림
+            // 부모 프로세스는 자식 프로세스의 종료를 기다림.
             waitpid(pid, NULL, 0);
         }
     }
