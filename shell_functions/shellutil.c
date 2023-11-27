@@ -3,6 +3,15 @@
 //파이프 지원
 //백그라운드 실행 지원
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
 int is_background(char **args) {
     int i = 0;
     while (args[i] != NULL) {
