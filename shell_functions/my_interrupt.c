@@ -21,25 +21,3 @@ void sigtstp_handler(int signo) {
 
     raise(SIGSTOP);
 }
-
-int main() {
-    // SIGINT 시그널 핸들러 등록
-    if (signal(SIGINT, sigint_handler) == SIG_ERR) {
-        perror("signal(SIGINT) error");
-        exit(EXIT_FAILURE);
-    }
-
-    // SIGTSTP 시그널 핸들러 등록
-    if (signal(SIGTSTP, sigtstp_handler) == SIG_ERR) {
-        perror("signal(SIGTSTP) error");
-        exit(EXIT_FAILURE);
-    }
-
-    // 프로그램이 계속 실행되도록 무한 루프
-    while (1) {
-        printf("Running...\n");
-        sleep(1);
-    }
-
-    return 0;
-}
