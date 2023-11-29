@@ -186,13 +186,10 @@ void execute_piped_commands(char *input) {
     // 첫 번째 명령어 실행
     char *args1[10];
     tokenize_command(commands[0], args1);
-    int in_background1 = is_background(args1);
-    execute_command(args1, STDIN_FILENO, pipe_fd[1],in_background1);  // 표준 출력을 파이프에 연결
 
     // 두 번째 명령어 실행
     char *args2[10];
     tokenize_command(commands[1], args2);
-    int in_background2 = is_background(args2);
 
     // 부모 프로세스에서는 파이프 닫기
     close(pipe_fd[0]);
