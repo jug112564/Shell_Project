@@ -193,7 +193,6 @@ void execute_piped_commands(char *input) {
     char *args2[10];
     tokenize_command(commands[1], args2);
     int in_background2 = is_background(args2);
-    execute_command(args2, pipe_fd[0], STDOUT_FILENO,in_background2);  // 표준 입력을 파이프에 연결
 
     // 부모 프로세스에서는 파이프 닫기
     close(pipe_fd[0]);
